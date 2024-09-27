@@ -59,6 +59,11 @@
     <Compile Include="Bai06.cs" />
     <Compile Include="Bai07.cs" />
     <Compile Include="Bai08.cs" />
+    <Compile Include="Bai09.cs" />
+    <Compile Include="Bai10.cs" />
+    <Compile Include="Bai11.cs" />
+    <Compile Include="Bai12.cs" />
+    <Compile Include="Bai13.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
