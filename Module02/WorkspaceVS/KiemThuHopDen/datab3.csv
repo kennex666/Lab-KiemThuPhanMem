@@ -1,0 +1,9 @@
+﻿num,exp
+13,TRUE
+10,FALSE
+-1,Exception
+1001,Exception
+1,FALSE
+1000,FALSE
+-1,Exception
+1001,Exception

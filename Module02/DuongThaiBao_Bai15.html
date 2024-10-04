@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Bài 02</title>
+  </head>
+
+  <style>
+    .wrapper{
+        width: 50vw;
+    }
+    .wrapper-input{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 40%;
+    }
+
+    .wrapper-input input {
+        width: 60%;
+    }
+
+    .errorMessage{
+        color: red;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <h1>Hexa To Dec</h1>
+
+      <div class="wrapper-input">
+        <label for="textHexa">Số Hexa:</label>
+        <input id="textHexa" />
+      </div>
+
+      <div class="wrapper-input">
+        <label for="txtDec">Số thập phân:</label><input type="text" id="txtDec" disabled />
+      </div>
+
+      <button onclick="submit()">Submit</button>
+    </div>
+  </body>
+
+  <script>
+    const submit = () => {
+        const textHexa = document.getElementById("textHexa").value;
+        const txtDec = document.getElementById("txtDec");
+
+        const print = (message) => {
+            txtDec.value = message;
+        }
+    
+
+        const checkHexa = (value) => {
+            // value is a string
+
+            value = value.toUpperCase();
+            if (!value && value.length === 0) {
+                print("Không được để trống");
+                return false;
+            }
+
+            if (value.length > 2 && value[0] === "0" && value[1] === "X") {
+                value = value.slice(2);
+            }
+
+            for (let i = 0; i < value.length; i++) {
+                if (
+                    (value[i] < "0" || value[i] > "9") &&
+                    (value[i] < "A" || value[i] > "F")
+                ) {
+                    print("Không phải số Hexa (0-9, A-F)");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        if (!checkHexa(textHexa)) return;
+
+        let dec = parseInt(textHexa, 16);
+
+        print(dec);
+        
+    }
+  </script>
+</html>

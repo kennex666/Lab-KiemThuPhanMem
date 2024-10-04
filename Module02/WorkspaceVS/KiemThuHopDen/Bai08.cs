@@ -44,7 +44,7 @@ namespace KiemThuHopDen
         {
             int chiSoCu = 25;
             int chiSoMoi = 276;
-            double e = 455226;
+            double e = 488171;
             double a = mtl.TinhTienDien(chiSoCu, chiSoMoi);
 
             Assert.AreEqual(e, a, 1);
@@ -55,7 +55,7 @@ namespace KiemThuHopDen
         {
             int chiSoCu = 25;
             int chiSoMoi = 376;
-            double e = 527893;
+            double e = 749433;
             double a = mtl.TinhTienDien(chiSoCu, chiSoMoi);
 
             Assert.AreEqual(e, a, 1);
@@ -66,7 +66,7 @@ namespace KiemThuHopDen
         {
             int chiSoCu = 25;
             int chiSoMoi = 525;
-            double e = 809710;
+            double e = 1159675;
             double a = mtl.TinhTienDien(chiSoCu, chiSoMoi);
 
             Assert.AreEqual(e, a, 1);

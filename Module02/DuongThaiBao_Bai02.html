@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Bài 02</title>
+  </head>
+
+  <style>
+    .wrapper{
+        width: 50vw;
+    }
+    .wrapper-input{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 40%;
+    }
+
+    .errorMessage{
+        color: red;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <h1>Subscription form</h1>
+
+        <div class="errorMessage">
+            <p id="errorMessage"></p>
+        </div>
+
+      <div class="wrapper-input">
+        <label for="txtUsername">User name:</label>
+        <input id="txtUsername" />
+      </div>
+
+      <div class="wrapper-input">
+        <label for="txtAge">Age:</label><input type="text" id="txtAge" />
+      </div>
+      <div class="wrapper-input">
+        <label for="txtCity">City:</label><input type="text" id="txtCity" />
+      </div>
+      <div class="wrapper-input">
+        <label for="txtPostalCode">Postal Code:</label
+        ><input type="text" id="txtPostalCode" />
+      </div>
+
+      <button onclick="submit()">Submit</button>
+    </div>
+  </body>
+
+  <script>
+    const submit = () => {
+        const txtUsername = document.getElementById("txtUsername").value;
+        const txtAge = document.getElementById("txtAge").value;
+        const txtCity = document.getElementById("txtCity").value;
+        const txtPostalCode = document.getElementById("txtPostalCode").value;
+
+        const errorMessage = document.getElementById("errorMessage");
+
+        const print = (message) => {
+            errorMessage.innerHTML = message;
+        }
+    
+        const checkInterger = (value) => {
+            // value is a string
+
+            if (value === "") return false;
+
+            if (isNaN(value)) return false;
+
+            if (value.includes(".")) return false;
+
+            try {
+                value = parseInt(value);
+            } catch (error) {
+                return false;
+            }
+
+            return true;
+        }
+
+        //• User Name phải có từ 6 đến 12 ký tự, bắt đầu bằng chữ cái và chỉ chứa chữ cái hoặc chữ số.
+        if (txtUsername === "") {
+            print("Username cần được nhập");
+            return;
+        }
+
+        if (txtUsername.length < 6){
+            print("Username phải có ít nhất 6 ký tự");
+            return;
+        }
+
+        if (txtUsername.length > 12){
+            print("Username không được vượt 12 ký tự");
+            return;
+        }
+
+        if (!txtUsername.match(/^[A-Za-z]+/)){
+            print("Username phải bắt đầu bằng chữ cái");
+            return;
+        }
+        
+        if (!txtUsername.match(/^[A-Za-z0-9]+$/)){
+            print("Username chỉ được chứa ký tự là chữ cái và số!");
+            return;
+        }
+
+    
+        // • Age phải >=18 và <65.
+        if (txtAge === "") {
+            print("Tuổi không được để trống");
+            return;
+        }
+
+        if (checkInterger(txtAge) === false){ 
+            print("Tuổi phải là số nguyên");
+            return;
+        }
+
+        if (txtAge < 18){
+            print("Tuổi phải lớn hơn hoặc bằng 18");
+            return;
+        }
+
+        if (txtAge > 64){
+            print("Tuổi phải nhỏ hơn 65");
+            return;
+        }
+
+        // • City phải là một trong các giá trị: Ottawa, Toronto, Montreal, Halifax.
+
+        if (txtCity === "") {
+            print("City không được để trống");
+            return;
+        }
+
+        if (txtCity !== "Ottawa" && txtCity !== "Toronto" && txtCity !== "Montreal" && txtCity !== "Halifax"){
+            print("City phải là một trong các giá trị: Ottawa, Toronto, Montreal, Halifax");
+            return;
+        }
+
+        // • Postal Code phải có 6 ký tự, bắt đầu bằng chữ cái và luân phiên giữa chữ cái và số.
+
+        if (txtPostalCode === "") {
+            print("Postal Code không được để trống");
+            return;
+        }
+
+        if (txtPostalCode.length !== 6){
+            print("Postal Code phải có 6 ký tự");
+            return;
+        }
+
+        if (!txtPostalCode.match(/^[A-Za-z]+/)){
+            print("Postal Code phải bắt đầu bằng chữ cái");
+            return;
+        }
+
+        if (!txtPostalCode.match(/^([A-Za-z][0-9])+$/)){
+            print("Postal Code phải luân phiên giữa chữ cái và số");
+            return;
+        }
+    
+        print("OK!");
+    }
+  </script>
+</html>

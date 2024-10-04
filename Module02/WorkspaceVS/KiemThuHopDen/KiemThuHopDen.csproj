@@ -52,7 +52,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bai11DD.cs" />
+    <Compile Include="Bai10DD.cs" />
+    <Compile Include="Bai09DD.cs" />
+    <Compile Include="Bai08DD.cs" />
+    <Compile Include="Bai07DD.cs" />
+    <Compile Include="Bai05DD.cs" />
+    <Compile Include="Bai06DD.cs" />
+    <Compile Include="Bai04DD.cs" />
+    <Compile Include="Bai03DD.cs" />
     <Compile Include="Bai03.cs" />
+    <Compile Include="Bai14.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bai04.cs" />
     <Compile Include="Bai05.cs" />
@@ -66,6 +76,15 @@
     <Compile Include="Bai13.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="datab10.csv" />
+    <None Include="datab11.csv" />
+    <None Include="datab3.csv" />
+    <None Include="datab4.csv" />
+    <None Include="datab5.csv" />
+    <None Include="datab6.csv" />
+    <None Include="datab7.csv" />
+    <None Include="datab8.csv" />
+    <None Include="datab9.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
